@@ -59,12 +59,16 @@ void Model::LoadNode(aiNode* node, const aiScene* scene)
 
 void Model::LoadMesh(aiMesh* mesh, const aiScene* scene)
 {
-	// 1. 정점
+	// 1. 정점, 노말
 	vector<glm::vec3> vertices;
 	vertices.reserve(mesh->mNumVertices);
 
 	aiVector3D* loadedVertices = mesh->mVertices;
-	copy(loadedVertices, loadedVertices + mesh->mNumVertices, vertices.begin());
+	for (int i = 0; i < mesh->mNumVertices; i++)
+	{
+		vertices.insert(vertices.end(), { mesh->mVertices[i].x, mesh->mVertices[i].y, mesh->mVertices[i].z });
+		// 노말도 포함시켜야함
+	}
 
 	// 2. 인덱스. 없으면 스킵함. 일단 없는 경우는 없다고 생각함
 	vector<unsigned int> indices;
@@ -119,3 +123,6 @@ void Model::LoadMesh(aiMesh* mesh, const aiScene* scene)
 }
 
 
+// 일어나서 해야할일
+// 1. STL 버그 싹 잡아죽이기
+// 2. 테스트
