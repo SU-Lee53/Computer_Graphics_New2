@@ -1,0 +1,220 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="소스 파일">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="리소스 파일">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="소스 파일\defines, enum, struct">
+      <UniqueIdentifier>{8018e7a1-4415-4e3b-85cf-9d9d8e94f002}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Camera">
+      <UniqueIdentifier>{efc369f0-c736-4a24-a7ba-c2ce614878b0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\GL_Core">
+      <UniqueIdentifier>{787a68b4-efae-44cd-aceb-817160df8a6d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Examples">
+      <UniqueIdentifier>{4880caca-5c4a-4474-938c-6e282ae7b442}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Examples\Super">
+      <UniqueIdentifier>{8d535601-9de7-4cb7-8ca2-9514c569c724}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\AssimpExamples">
+      <UniqueIdentifier>{11500450-60d7-4e51-9a29-6432361cf521}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Shader">
+      <UniqueIdentifier>{85ccf79e-5316-4c01-a6c5-d23b94ca0c5d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Shader\glsl">
+      <UniqueIdentifier>{e40b6e7e-47cd-4fc9-86d1-c7a82717f470}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Manager">
+      <UniqueIdentifier>{de093e83-5979-40f9-b7d0-99d19bdc9047}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\VertexObj">
+      <UniqueIdentifier>{8e4364c2-25e3-43c4-9dc4-41c5d68dc4f7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Object">
+      <UniqueIdentifier>{ad01a221-39d8-426c-8626-62e3ef95fbd0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Projection">
+      <UniqueIdentifier>{5b200bfb-44b1-4b1e-960f-ae1126de439a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Utills">
+      <UniqueIdentifier>{25f5b77e-ed7b-4e75-91ad-f60c2af4cbca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\pch">
+      <UniqueIdentifier>{37452988-aa89-4185-87e9-88d774f87395}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Renderer">
+      <UniqueIdentifier>{5caa427c-ac5d-41d8-a447-27ad3ffc95ad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Model">
+      <UniqueIdentifier>{0764c546-a170-4939-a3fb-eae86ed70f76}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="__struct.h">
+      <Filter>소스 파일\defines, enum, struct</Filter>
+    </ClInclude>
+    <ClInclude Include="__defines.h">
+      <Filter>소스 파일\defines, enum, struct</Filter>
+    </ClInclude>
+    <ClInclude Include="__enum.h">
+      <Filter>소스 파일\defines, enum, struct</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>소스 파일\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="Core.h">
+      <Filter>소스 파일\GL_Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Ex19.h">
+      <Filter>소스 파일\Examples</Filter>
+    </ClInclude>
+    <ClInclude Include="Ex20.h">
+      <Filter>소스 파일\Examples</Filter>
+    </ClInclude>
+    <ClInclude Include="Ex21.h">
+      <Filter>소스 파일\Examples</Filter>
+    </ClInclude>
+    <ClInclude Include="Ex23.h">
+      <Filter>소스 파일\Examples</Filter>
+    </ClInclude>
+    <ClInclude Include="Ex24.h">
+      <Filter>소스 파일\Examples</Filter>
+    </ClInclude>
+    <ClInclude Include="Examples.h">
+      <Filter>소스 파일\Examples\Super</Filter>
+    </ClInclude>
+    <ClInclude Include="ExAssimp.h">
+      <Filter>소스 파일\AssimpExamples</Filter>
+    </ClInclude>
+    <ClInclude Include="Shaders.h">
+      <Filter>소스 파일\Shader</Filter>
+    </ClInclude>
+    <ClInclude Include="InputManager.h">
+      <Filter>소스 파일\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="TransformManager.h">
+      <Filter>소스 파일\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="TimeManager.h">
+      <Filter>소스 파일\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="VBO.h">
+      <Filter>소스 파일\VertexObj</Filter>
+    </ClInclude>
+    <ClInclude Include="VAO.h">
+      <Filter>소스 파일\VertexObj</Filter>
+    </ClInclude>
+    <ClInclude Include="Objects.h">
+      <Filter>소스 파일\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Projection.h">
+      <Filter>소스 파일\Projection</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>리소스 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Utills.h">
+      <Filter>소스 파일\Utills</Filter>
+    </ClInclude>
+    <ClInclude Include="pch.h">
+      <Filter>소스 파일\pch</Filter>
+    </ClInclude>
+    <ClInclude Include="Renderer.h">
+      <Filter>소스 파일\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="Model.h">
+      <Filter>소스 파일\Model</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main_core.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>소스 파일\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="Core.cpp">
+      <Filter>소스 파일\GL_Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Ex19.cpp">
+      <Filter>소스 파일\Examples</Filter>
+    </ClCompile>
+    <ClCompile Include="Ex20.cpp">
+      <Filter>소스 파일\Examples</Filter>
+    </ClCompile>
+    <ClCompile Include="Ex21.cpp">
+      <Filter>소스 파일\Examples</Filter>
+    </ClCompile>
+    <ClCompile Include="Ex23.cpp">
+      <Filter>소스 파일\Examples</Filter>
+    </ClCompile>
+    <ClCompile Include="Ex24.cpp">
+      <Filter>소스 파일\Examples</Filter>
+    </ClCompile>
+    <ClCompile Include="Examples.cpp">
+      <Filter>소스 파일\Examples\Super</Filter>
+    </ClCompile>
+    <ClCompile Include="ExAssimp.cpp">
+      <Filter>소스 파일\AssimpExamples</Filter>
+    </ClCompile>
+    <ClCompile Include="Shaders.cpp">
+      <Filter>소스 파일\Shader</Filter>
+    </ClCompile>
+    <ClCompile Include="InputManager.cpp">
+      <Filter>소스 파일\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="TransformManager.cpp">
+      <Filter>소스 파일\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="TimeManager.cpp">
+      <Filter>소스 파일\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="VBO.cpp">
+      <Filter>소스 파일\VertexObj</Filter>
+    </ClCompile>
+    <ClCompile Include="VAO.cpp">
+      <Filter>소스 파일\VertexObj</Filter>
+    </ClCompile>
+    <ClCompile Include="Objects.cpp">
+      <Filter>소스 파일\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Projection.cpp">
+      <Filter>소스 파일\Projection</Filter>
+    </ClCompile>
+    <ClCompile Include="Utills.cpp">
+      <Filter>소스 파일\Utills</Filter>
+    </ClCompile>
+    <ClCompile Include="pch.cpp">
+      <Filter>소스 파일\pch</Filter>
+    </ClCompile>
+    <ClCompile Include="Renderer.cpp">
+      <Filter>소스 파일\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="Model.cpp">
+      <Filter>소스 파일\Model</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="fragment.glsl">
+      <Filter>소스 파일\Shader\glsl</Filter>
+    </None>
+    <None Include="multipleViewport.glsl">
+      <Filter>소스 파일\Shader\glsl</Filter>
+    </None>
+    <None Include="uniformFragment.glsl">
+      <Filter>소스 파일\Shader\glsl</Filter>
+    </None>
+    <None Include="vertex.glsl">
+      <Filter>소스 파일\Shader\glsl</Filter>
+    </None>
+  </ItemGroup>
+</Project>
