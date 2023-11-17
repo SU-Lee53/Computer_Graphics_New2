@@ -82,22 +82,46 @@ void Shaders::makeUniformFragmentShader()
 	}
 }
 
-void Shaders::makeMViewportShader()
+void Shaders::makeTexVertexShader()
 {
-	GLchar* mvSource;
+	GLchar* vertexSource;
 
-	// 프래그먼트 셰이더 읽어 저장하고 컴파일하기
-	mvSource = filetobuf("multipleViewport.glsl");
-	mvPortShader = glCreateShader(GL_VERTEX_SHADER);
-	glShaderSource(mvPortShader, 1, &mvSource, NULL);
-	glCompileShader(mvPortShader);
+	// 버텍스 셰이더 읽어 저장하고 컴파일 하기
+	// filetobuf: 사용자정의 함수로 텍스트를 읽어서 문자열에 저장하는 함수
+	// 본 파일에서는 Utills에 함수선언 및 정의가 담겨있음
+
+	vertexSource = filetobuf("light_tex_vs.glsl");
+	texVertexShader = glCreateShader(GL_VERTEX_SHADER);
+	glShaderSource(texVertexShader, 1, &vertexSource, NULL);
+	glCompileShader(texVertexShader);
 
 	GLint result;
 	GLchar errorLog[512];
-	glGetShaderiv(mvPortShader, GL_COMPILE_STATUS, &result);
+	glGetShaderiv(texVertexShader, GL_COMPILE_STATUS, &result);
 	if (!result)
 	{
-		glGetShaderInfoLog(mvPortShader, 512, NULL, errorLog);
+		glGetShaderInfoLog(texVertexShader, 512, NULL, errorLog);
+		cerr << "ERROR: Failed to compile vertex shader\n" << errorLog << endl;
+		return;
+	}
+}
+
+void Shaders::makeTexFragmentshader()
+{
+	GLchar* fragmentSource;
+
+	// 프래그먼트 셰이더 읽어 저장하고 컴파일하기
+	fragmentSource = filetobuf("light_tex_fs.glsl");
+	texFragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
+	glShaderSource(texFragmentShader, 1, &fragmentSource, NULL);
+	glCompileShader(texFragmentShader);
+
+	GLint result;
+	GLchar errorLog[512];
+	glGetShaderiv(texFragmentShader, GL_COMPILE_STATUS, &result);
+	if (!result)
+	{
+		glGetShaderInfoLog(texFragmentShader, 512, NULL, errorLog);
 		cerr << "ERROR: Failed to complie fragment shader\n" << errorLog << endl;
 		return;
 	}
@@ -164,29 +188,29 @@ GLuint Shaders::makeShaderProgram2()
 
 GLuint Shaders::makeShaderProgram3()
 {
-	makeMViewportShader();
-	makeFragmentShaders();
+	makeTexVertexShader();
+	makeTexFragmentshader();
 
-	mvPortID = glCreateProgram();
+	texShaderID = glCreateProgram();
 
-	glAttachShader(mvPortID, mvPortShader);
-	glAttachShader(mvPortID, fragmentShader);
+	glAttachShader(texShaderID, texVertexShader);
+	glAttachShader(texShaderID, texFragmentShader);
 
-	glLinkProgram(mvPortID);
+	glLinkProgram(texShaderID);
 
-	glDeleteShader(mvPortShader);
-	glDeleteShader(fragmentShader);
+	glDeleteShader(texVertexShader);
+	glDeleteShader(texFragmentShader);
 
 	GLint result;
 	GLchar errorLog[512];
-	glGetProgramiv(mvPortID, GL_LINK_STATUS, &result);
+	glGetProgramiv(texShaderID, GL_LINK_STATUS, &result);
 	if (!result)
 	{
-		glGetProgramInfoLog(mvPortID, 512, NULL, errorLog);
+		glGetProgramInfoLog(texShaderID, 512, NULL, errorLog);
 		cerr << "ERROR: Failed to link shader program\n" << errorLog << endl;
 		return false;
 	}
 
-	return mvPortID;
+	return texShaderID;
 }
 

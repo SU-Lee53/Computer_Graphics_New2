@@ -16,24 +16,26 @@ public:
 
 	int GetShaderID() { return shaderID; }
 	int GetuShaderID() { return uShaderID; }
-	int GetMultipleViewportShaderID() { return mvPortID; }
 
 private:
 	void makeVertexShaders();
 	void makeFragmentShaders();
-
 	void makeUniformFragmentShader();
-	void makeMViewportShader();
+
+	void makeTexVertexShader();
+	void makeTexFragmentshader();
 
 private:
 	GLuint shaderID;
 	GLuint uShaderID;
-	GLuint mvPortID;
+	GLuint texShaderID;
 
 	GLuint vertexShader;
 	GLuint fragmentShader;
 	GLuint uniformShader;
-	GLuint mvPortShader;
+
+	GLuint texVertexShader;
+	GLuint texFragmentShader;
 	
 };
 
