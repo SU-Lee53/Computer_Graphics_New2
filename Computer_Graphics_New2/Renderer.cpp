@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "Renderer.h"
 
-void Renderer::Render(VAO* vao)
+void Renderer::RenderModel(VAO* vao)
 {
 	glBindVertexArray(vao->GetVAOHandle());
 
@@ -11,7 +11,15 @@ void Renderer::Render(VAO* vao)
 	}
 	else
 	{
-		glDrawElements(GL_TRIANGLES, vao->GetElementCount(), GL_UNSIGNED_INT, 0);
+		glDrawElements(GL_TRIANGLES, vao->GetElementCount(), GL_UNSIGNED_INT, nullptr);
 	}
 
+}
+
+Renderer::Renderer()
+{
+}
+
+Renderer::~Renderer()
+{
 }

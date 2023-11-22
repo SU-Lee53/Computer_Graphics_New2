@@ -16,6 +16,7 @@ VBO::~VBO()
 		vector<float>().swap(__vBuf);
 		vector<float>().swap(__cBuf);
 		vector<float>().swap(__nBuf);
+		vector<float>().swap(__tBuf);
 	}
 
 	for (int i = 0; i < __eBuf.size(); i++)
@@ -29,8 +30,8 @@ void VBO::PushToVertexBuffer(float* buf, int bufSize)
 	//	memset(this->vBuf, 0.0f, sizeof(float) * 256);
 	//	memcpy(this->vBuf, buf, sizeof(float) * bufSize);
 
-	__vBuf.reserve(bufSize);
-	copy(buf, buf + bufSize, __vBuf.end());
+	__vBuf.resize(0);
+	copy(buf, buf + bufSize, back_inserter(__vBuf));
 }
 
 void VBO::PushToColorBuffer(float* buf, int bufSize)
@@ -38,8 +39,8 @@ void VBO::PushToColorBuffer(float* buf, int bufSize)
 	//	memset(this->cBuf, 0.0f, sizeof(float) * 256);
 	//	memcpy(this->cBuf, buf, sizeof(float) * bufSize);
 
-	__cBuf.reserve(bufSize);
-	copy(buf, buf + bufSize, __cBuf.end());
+	__cBuf.resize(0);
+	copy(buf, buf + bufSize, back_inserter(__cBuf));
 }
 
 void VBO::PushToElementBuffer(unsigned int* eBuf, int ebufSize)
@@ -47,18 +48,18 @@ void VBO::PushToElementBuffer(unsigned int* eBuf, int ebufSize)
 	//	memset(this->eBuf, 0, sizeof(unsigned int) * 256);
 	//	memcpy(this->eBuf, eBuf, sizeof(unsigned int) * ebufSize);
 
-	__eBuf.reserve(ebufSize);
-	copy(eBuf, eBuf + ebufSize, __eBuf.end());
+	__eBuf.resize(0);
+	copy(eBuf, eBuf + ebufSize, back_inserter(__eBuf));
 }
 
 void VBO::PushToNormalBuffer(float* buf, int bufSize)
 {
-	__nBuf.reserve(bufSize);
-	copy(buf, buf + bufSize, __nBuf.end());
+	__nBuf.resize(0);
+	copy(buf, buf + bufSize, back_inserter(__nBuf));
 }
 
 void VBO::PushToTextureBuffer(float* buf, int bufSize)
 {
-	__nBuf.reserve(bufSize);
-	copy(buf, buf + bufSize, __nBuf.end());
+	__tBuf.resize(0);
+	copy(buf, buf + bufSize, back_inserter(__tBuf));
 }

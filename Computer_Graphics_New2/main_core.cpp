@@ -1,10 +1,12 @@
 #include "pch.h"
-#include "Ex23.h"
-#include "Ex24.h"
 #include "ExAssimp.h"
+#include "Ex26.h"
+#include "Ex25.h"
+#include "Ex27.h"
 
-// LOAD_EX(Ex21);
-LOAD_EX(ExAssimp);
+// LOAD_EX(Ex25);
+//	LOAD_EX(Ex26);
+LOAD_EX(Ex27);
 
 
 

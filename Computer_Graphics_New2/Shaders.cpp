@@ -13,7 +13,7 @@ Shaders::~Shaders()
 {
 	glDeleteShader(shaderID);
 	glDeleteShader(uShaderID);
-	glDeleteShader(mvPortID);
+	glDeleteShader(texShaderID);
 }
 
 void Shaders::makeVertexShaders()

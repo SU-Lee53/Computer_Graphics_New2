@@ -16,7 +16,7 @@ public:
 	// 정점, 색상, 인덱스 버퍼를 모두 받는 생성자
 	VAO(float* vertex, float* color, unsigned int* element, int vBufSize, int eBufSize);
 	// 정점, 색상, 인덱스, 노말까지 받는 생성자....
-	VAO(float* vertex, float* normal, float* color, unsigned int* element, int vBufSize, int eBufSize);
+	VAO(float* vertex, float* normal, float* textureUV, unsigned int* element, int vBufSize, int eBufSize, int tBufSize);
 	~VAO();
 
 	// VAO_TYPE: NON_INDEXED or INDEXED
@@ -39,6 +39,7 @@ private:
 	unsigned int h_VAO = 0;		// VAO 핸들
 	VBO _vbo;				
 	int _vBufSize;	// == cBufSize
+	int _tBufSize;
 	int _eBufSize;
 	VAO_TYPE _vaoType;
 

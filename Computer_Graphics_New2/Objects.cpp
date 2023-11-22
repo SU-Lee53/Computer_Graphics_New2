@@ -500,16 +500,16 @@ void Objects::SetQuadricDrawType(GLenum drawType)
 
 void Objects::ChangeColor(RGB rgb)
 {
-	float* cBuf = _vao->GetColorBuffer();
+	float* cBuf = &_vao->GetColorBuffer()[0];
 	int bufSize = _vao->GetVertexCount();
-
+	
 	for (int i = 0; i < bufSize; i += 3)
 	{
 		cBuf[i] = rgb.Red;
 		cBuf[i + 1] = rgb.Green;
 		cBuf[i + 2] = rgb.Blue;
 	}
-
+	
 	_vao->InitVAO(INDEXED);
 
 }

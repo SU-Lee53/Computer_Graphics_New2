@@ -25,13 +25,8 @@ bool Model::LoadModel(const string& Filename)
 		return false;
 	}
 
-	aiMesh* loaded = *scene->mMeshes;
-
-	aiVector3D* loadedVertices = loaded->mVertices;
-	int vertexCount = loaded->mNumVertices;
-	vector<glm::vec3> vertices;
-	vertices.reserve(vertexCount);
-	copy(loadedVertices, loadedVertices + vertexCount, vertices);
+	LoadNode(scene->mRootNode, scene);
+	LoadMaterials(scene);
 
 }
 
@@ -59,67 +54,78 @@ void Model::LoadNode(aiNode* node, const aiScene* scene)
 
 void Model::LoadMesh(aiMesh* mesh, const aiScene* scene)
 {
-	// 1. 정점, 노말
-	vector<glm::vec3> vertices;
+	// 1. 정점, 노말, 텍스쳐 좌표
+	vector<float> vertices;
 	vertices.reserve(mesh->mNumVertices);
 
-	aiVector3D* loadedVertices = mesh->mVertices;
+	vector<float> normals;
+	normals.reserve(mesh->mNumVertices);
+
+	vector<float> textures;
+	textures.reserve(mesh->mNumVertices);
+
 	for (int i = 0; i < mesh->mNumVertices; i++)
 	{
-		vertices.insert(vertices.end(), { mesh->mVertices[i].x, mesh->mVertices[i].y, mesh->mVertices[i].z });
-		// 노말도 포함시켜야함
+		aiVector3D vTemp = mesh->mVertices[i];
+		aiVector3D nTemp = mesh->mNormals[i];
+		vertices.insert(vertices.end(), { static_cast<float>(vTemp.x), static_cast<float>(vTemp.y), static_cast<float>(vTemp.z) });
+		normals.insert(normals.end(), { static_cast<float>(nTemp.x), static_cast<float>(nTemp.y), static_cast<float>(nTemp.z) });
+
+		if (mesh->mTextureCoords[0])
+		{
+			textures.insert(textures.end(), { static_cast<float>(mesh->mTextureCoords[0][i].x), static_cast<float>(mesh->mTextureCoords[0][i].y)});
+		}
+		else
+		{
+			textures.insert(textures.end(), { 0.0f, 0.0f });
+		}
+
 	}
 
 	// 2. 인덱스. 없으면 스킵함. 일단 없는 경우는 없다고 생각함
 	vector<unsigned int> indices;
 	indices.reserve(mesh->mNumFaces);
 
-	aiFace* loadedFaces;
-	if (mesh->HasFaces())
+	for (int i = 0; i < mesh->mNumFaces; i++)
 	{
-		for (int i = 0; i < mesh->mNumFaces; i++)
+		aiFace loadedFace = mesh->mFaces[i];
+		for (int j = 0; j < loadedFace.mNumIndices; j++)
 		{
-			loadedFaces = mesh->mFaces;
-			int IndexCount = loadedFaces->mNumIndices;
-			copy(loadedFaces->mIndices, loadedFaces->mIndices + IndexCount, indices.end());	// 벡터의 끝에다가 인덱스를 밀어넣는다
+			indices.push_back(loadedFace.mIndices[j]);
 		}
-	}
 
-	// 3. 색상. 없으면 스킵. 얘도 없는경우는 없다고 생각함
-	vector<RGB> colors;
-	colors.reserve(vertices.size());
-
-	aiColor4D* loadedColor;
-	for (int i = 0; i < vertices.size(); i++)
-	{
-		loadedColor = *mesh->mColors;
-		float container[] = {loadedColor->r, loadedColor->g, loadedColor->b};
-		copy(container, container + 3, colors.end());
 	}
 
 	// VAO 생성을 위해 필요한 데이터 형태로 복사
-	float* vertexContainer;
-	unsigned int* indexContainer;
-	float* colorContainer;
 
-	copy(vertices.begin(), vertices.end(), vertexContainer);
-	copy(indices.begin(), indices.end(), indexContainer);
-	copy(colors.begin(), colors.end(), colorContainer);
+	float* vertexContainer = &vertices[0];
+	float* normalContainer = &normals[0];
+	float* texContainer = &textures[0];
+	unsigned int* indexContainer = &indices[0];
+
+	
+
+	// VAO를 벡터를 받아 생성하는 생성자가 필요할듯함.....
 
 	VAO* vao;
 
 	// 인덱스가 있으면 indexed로 버퍼 생성
 	if (mesh->HasFaces())
 	{
-		vao = new VAO(vertexContainer, colorContainer, indexContainer, static_cast<int>(vertices.size()), static_cast<int>(indices.size()));
+		vao = new VAO(vertexContainer, normalContainer, texContainer, indexContainer, static_cast<int>(vertices.size()), static_cast<int>(indices.size()), static_cast<int>(textures.size()));
 	}
 	else
 	{
-		vao = new VAO(vertexContainer, colorContainer, static_cast<int>(vertices.size()));
+		vao = new VAO(vertexContainer, texContainer, static_cast<int>(vertices.size()));
 	}
 
 	vaoList.push_back(vao);
 	
+}
+
+void Model::LoadMaterials(const aiScene* scene)
+{
+
 }
 
 

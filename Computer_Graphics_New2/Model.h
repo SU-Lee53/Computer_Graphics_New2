@@ -18,6 +18,9 @@ public:
 
 	void LoadNode(aiNode* node, const aiScene* scene);
 	void LoadMesh(aiMesh* mesh, const aiScene* scene);
+	void LoadMaterials(const aiScene* scene);
+
+	vector<VAO*> GetVAO() { return vaoList; }
 
 
 private:

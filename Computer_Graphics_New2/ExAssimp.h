@@ -18,6 +18,7 @@ public:
 	virtual void MotionUpdate() override {}
 	virtual void SpecialKeyUpdate() override {}
 
+	void Render();
 
 protected:
 	Projection* _projection;
@@ -25,6 +26,6 @@ protected:
 	glm::mat4 _worldMat = glm::mat4(1.0);
 	unsigned int _shaderID;
 
-	Model* modelTest;
+	Model* modelTest = nullptr;
 
 };

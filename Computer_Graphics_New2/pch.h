@@ -31,6 +31,8 @@ using namespace std;
 #include "Camera.h"
 #include "Projection.h"
 #include "Model.h"
+#include "Renderer.h"
+#include "Light.h"
 
 #include "Core.h"
 #include "InputManager.h"

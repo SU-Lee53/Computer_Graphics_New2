@@ -57,6 +57,15 @@
     <Filter Include="소스 파일\Model">
       <UniqueIdentifier>{0764c546-a170-4939-a3fb-eae86ed70f76}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\Texture">
+      <UniqueIdentifier>{56cd666d-41fd-4763-b2ba-6cf02a599dec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Material">
+      <UniqueIdentifier>{29692440-bd4c-4900-a9d9-6eb845027959}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Light">
+      <UniqueIdentifier>{8a3deb35-1381-4314-b16f-9a3b186ac76e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="__struct.h">
@@ -134,6 +143,25 @@
     <ClInclude Include="Model.h">
       <Filter>소스 파일\Model</Filter>
     </ClInclude>
+    <ClInclude Include="resource1.h" />
+    <ClInclude Include="Material.h">
+      <Filter>소스 파일\Material</Filter>
+    </ClInclude>
+    <ClInclude Include="Texture.h">
+      <Filter>소스 파일\Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="Ex25.h">
+      <Filter>소스 파일\Examples</Filter>
+    </ClInclude>
+    <ClInclude Include="Light.h">
+      <Filter>소스 파일\Light</Filter>
+    </ClInclude>
+    <ClInclude Include="Ex26.h">
+      <Filter>소스 파일\Examples</Filter>
+    </ClInclude>
+    <ClInclude Include="Ex27.h">
+      <Filter>소스 파일\Examples</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main_core.cpp">
@@ -202,6 +230,24 @@
     <ClCompile Include="Model.cpp">
       <Filter>소스 파일\Model</Filter>
     </ClCompile>
+    <ClCompile Include="Material.cpp">
+      <Filter>소스 파일\Material</Filter>
+    </ClCompile>
+    <ClCompile Include="Texture.cpp">
+      <Filter>소스 파일\Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="Ex25.cpp">
+      <Filter>소스 파일\Examples</Filter>
+    </ClCompile>
+    <ClCompile Include="Light.cpp">
+      <Filter>소스 파일\Light</Filter>
+    </ClCompile>
+    <ClCompile Include="Ex26.cpp">
+      <Filter>소스 파일\Examples</Filter>
+    </ClCompile>
+    <ClCompile Include="Ex27.cpp">
+      <Filter>소스 파일\Examples</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="fragment.glsl">
@@ -216,5 +262,16 @@
     <None Include="vertex.glsl">
       <Filter>소스 파일\Shader\glsl</Filter>
     </None>
+    <None Include="light_tex_fs.glsl">
+      <Filter>소스 파일\Shader</Filter>
+    </None>
+    <None Include="light_tex_vs.glsl">
+      <Filter>소스 파일\Shader</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Computer_Graphics_New2.rc">
+      <Filter>리소스 파일</Filter>
+    </ResourceCompile>
   </ItemGroup>
 </Project>

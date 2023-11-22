@@ -16,6 +16,7 @@ public:
 
 	int GetShaderID() { return shaderID; }
 	int GetuShaderID() { return uShaderID; }
+	int GetTexShaderID() { return texShaderID; }
 
 private:
 	void makeVertexShaders();

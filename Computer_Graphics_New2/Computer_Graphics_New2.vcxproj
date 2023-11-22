@@ -137,16 +137,23 @@
     <ClInclude Include="Ex21.h" />
     <ClInclude Include="Ex23.h" />
     <ClInclude Include="Ex24.h" />
+    <ClInclude Include="Ex25.h" />
+    <ClInclude Include="Ex26.h" />
+    <ClInclude Include="Ex27.h" />
     <ClInclude Include="Examples.h" />
     <ClInclude Include="ExAssimp.h" />
     <ClInclude Include="InputManager.h" />
+    <ClInclude Include="Light.h" />
+    <ClInclude Include="Material.h" />
     <ClInclude Include="Model.h" />
     <ClInclude Include="Objects.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Projection.h" />
     <ClInclude Include="Renderer.h" />
     <ClInclude Include="resource.h" />
+    <ClInclude Include="resource1.h" />
     <ClInclude Include="Shaders.h" />
+    <ClInclude Include="Texture.h" />
     <ClInclude Include="TimeManager.h" />
     <ClInclude Include="TransformManager.h" />
     <ClInclude Include="Utills.h" />
@@ -164,10 +171,15 @@
     <ClCompile Include="Ex21.cpp" />
     <ClCompile Include="Ex23.cpp" />
     <ClCompile Include="Ex24.cpp" />
+    <ClCompile Include="Ex25.cpp" />
+    <ClCompile Include="Ex26.cpp" />
+    <ClCompile Include="Ex27.cpp" />
     <ClCompile Include="Examples.cpp" />
     <ClCompile Include="ExAssimp.cpp" />
     <ClCompile Include="InputManager.cpp" />
+    <ClCompile Include="Light.cpp" />
     <ClCompile Include="main_core.cpp" />
+    <ClCompile Include="Material.cpp" />
     <ClCompile Include="Model.cpp" />
     <ClCompile Include="Objects.cpp" />
     <ClCompile Include="pch.cpp">
@@ -176,6 +188,7 @@
     <ClCompile Include="Projection.cpp" />
     <ClCompile Include="Renderer.cpp" />
     <ClCompile Include="Shaders.cpp" />
+    <ClCompile Include="Texture.cpp" />
     <ClCompile Include="TimeManager.cpp" />
     <ClCompile Include="TransformManager.cpp" />
     <ClCompile Include="Utills.cpp" />
@@ -184,9 +197,14 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="fragment.glsl" />
+    <None Include="light_tex_fs.glsl" />
+    <None Include="light_tex_vs.glsl" />
     <None Include="multipleViewport.glsl" />
     <None Include="uniformFragment.glsl" />
     <None Include="vertex.glsl" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Computer_Graphics_New2.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

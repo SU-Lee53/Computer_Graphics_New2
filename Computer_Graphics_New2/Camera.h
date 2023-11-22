@@ -17,6 +17,8 @@ public:
 	void SetWorldMat(glm::mat4 worldMat);
 	void ResetCamera(glm::vec3 EYE, glm::vec3 AT, glm::vec3 UP);
 
+	glm::vec3 getCameraPos() { return _EYE; }
+
 private:
 	void SetCamera();
 	

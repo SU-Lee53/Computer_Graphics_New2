@@ -1,13 +1,19 @@
 #pragma once
 class Renderer
 {
+public:
+
 	static Renderer& GetInstance()
 	{
 		static Renderer instance;
 		return instance;
 	}
 
-	void Render(VAO* vao);
+	void RenderModel(VAO* vao);
+
+private:
+	Renderer();
+	~Renderer();
 
 };
 
